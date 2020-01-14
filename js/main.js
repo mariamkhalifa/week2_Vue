@@ -21,6 +21,10 @@ var vm = new Vue({
       { name: "Marvel's The Avengers", thumb: "avengers.jpg", vidsource: "avengers.mp4", description: "will they make black widow action figures this time?" }
     ],
 
+    videotitle: "Vidoe title goes here",
+    videodescription: "vid descritpion goes here",
+    videosource: "",
+
     showDetails: false
   },
 
@@ -38,6 +42,17 @@ var vm = new Vue({
 
     setUserPrefs() {
       console.log('set user prefs via routing and probably a component');
+    },
+
+    // this is ES6 datadestructuting - pull the keys and values you need, no the whole object
+    loadMovie({name, description, vidsource}) {
+      console.log('show movie details');
+
+      this.videotitle = name;
+      this.videodescription = description;
+      this.videosource = vidsource;
+
+      this.showDetails = true;
     }
 
   }
